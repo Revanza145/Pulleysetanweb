@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-tech: "Michroma", sans-serif;
+}
+
+@layer components {
+  .red-gradient-text {
+    background: linear-gradient(180deg, #ff1a1a 0%, #800000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .accent-line {
+    height: 2px;
+    background: linear-gradient(90deg, #ff1a1a, transparent);
+  }
+  
+  .mask-image-radial {
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+  }
+  
+  body {
+    @apply text-neutral-100 antialiased selection:bg-red-600 selection:text-white;
+  }
+  
+  /* Custom scrollbar for dark tech look */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ef4444;
+  }
+}
